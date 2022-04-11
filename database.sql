@@ -1,5 +1,6 @@
 create database dbms_medicine;
 use dbms_medicine;
+DROP TABLE IF EXISTS `dbms_medicine`.`medicine`;
 CREATE TABLE `dbms_medicine`.`medicine` (
   `medicine_id` VARCHAR(4) NOT NULL,
   `medicine_name` VARCHAR(10) NULL,
@@ -10,6 +11,7 @@ CREATE TABLE `dbms_medicine`.`medicine` (
 INSERT INTO `dbms_medicine`.`medicine` (`medicine_id`, `medicine_name`, `medicine_cost`, `medicine_brand`) VALUES ('1001', 'Ranbaxy', '50', 'Aimway');
 INSERT INTO `dbms_medicine`.`medicine` (`medicine_id`, `medicine_name`, `medicine_cost`, `medicine_brand`) VALUES ('1002', 'Mifoxine', '40', 'Pargua');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`batch`;
 CREATE TABLE `dbms_medicine`.`batch` (
   `batch_no` VARCHAR(4) NOT NULL,
   `medicine_stock` INT NULL,
@@ -21,6 +23,7 @@ CREATE TABLE `dbms_medicine`.`batch` (
 INSERT INTO `dbms_medicine`.`batch` (`batch_no`, `medicine_stock`, `manufacture_date`, `expiry_date`,`med_id`) VALUES ('B101', '20', '2020-09-16', '2021-03-16','1001');
 INSERT INTO `dbms_medicine`.`batch` (`batch_no`, `medicine_stock`, `manufacture_date`, `expiry_date`,`med_id`) VALUES ('B201', '30', '2020-09-24', '2021-03-24','1002');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`sales`;
 CREATE TABLE `dbms_medicine`.`sales` (
     `sale_id` VARCHAR(4) NOT NULL,
     `medicine_id` VARCHAR(4) NULL,
@@ -33,6 +36,7 @@ CREATE TABLE `dbms_medicine`.`sales` (
 
 INSERT INTO `dbms_medicine`.`sales` (`sale_id`, `medicine_id`, `medicine_cost`, `batch_id`, `quantity`) VALUES ('S101', '1001', '50', 'B101', '20');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`sale_details`;
 CREATE TABLE `dbms_medicine`.`sale_details` (
   `sale_date` DATE NOT NULL,
   `sale_id` VARCHAR(4) NOT NULL,
@@ -42,6 +46,7 @@ CREATE TABLE `dbms_medicine`.`sale_details` (
 
 INSERT INTO `dbms_medicine`.`sale_details` (`sale_date`, `sale_id`, `user_id`, `org_id`) VALUES (curdate(), 'S101', 'Adi', 'O101');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`organisation`;
 CREATE TABLE `dbms_medicine`.`organisation` (
   `org_id` VARCHAR(4) NOT NULL,
   `org_name` VARCHAR(10) NULL,
@@ -52,6 +57,7 @@ CREATE TABLE `dbms_medicine`.`organisation` (
 INSERT INTO `dbms_medicine`.`organisation` (`org_id`, `org_name`, `org_type`, `contact_no`) VALUES ('O101', 'Texas med', 'purchase', '990293928');
 INSERT INTO `dbms_medicine`.`organisation` (`org_id`, `org_name`, `org_type`, `contact_no`) VALUES ('O102', 'Filla Co', 'purchase', '622114488');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`user_info`;
 CREATE TABLE `dbms_medicine`.`user_info` (
   `username` VARCHAR(20) NOT NULL,
   `phone_number` VARCHAR(10) NULL,
@@ -65,6 +71,7 @@ CREATE TABLE `dbms_medicine`.`user_info` (
 INSERT INTO `dbms_medicine`.`user_info` (`username`, `phone_number`, `email`, `street_user`, `user_city`, `user_state`, `pincode`) VALUES ('Adi', '9123876321', 'adi@gmail.com', 'Hazira road', 'Surat', 'Gujarat', '394270');
 INSERT INTO `dbms_medicine`.`user_info` (`username`, `phone_number`, `email`, `street_user`, `user_city`, `user_state`, `pincode`) VALUES ('Devesh', '7786923413', 'devesh@gmail.com', 'VIT university', 'Vellore', 'Tamil Nadu', '632014');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`login`;
 CREATE TABLE `dbms_medicine`.`login` (
   `Login_id` VARCHAR(4) NOT NULL,
   `Login_username` VARCHAR(20) NULL,
@@ -77,6 +84,7 @@ INSERT INTO `dbms_medicine`.`login` (`Login_id`, `Login_username`, `Login_passwo
 INSERT INTO `dbms_medicine`.`login` (`Login_id`, `Login_username`, `Login_password`) VALUES ('L104', 'Monalisa', 'monalisa.mm');
 INSERT INTO `dbms_medicine`.`login` (`Login_id`, `Login_username`, `Login_password`) VALUES ('L105', 'Shubhankar', 'shubhankar.gul');
 
+DROP TABLE IF EXISTS `dbms_medicine`.`role`;
 CREATE TABLE `dbms_medicine`.`role` (
   `Role_id` VARCHAR(20) NOT NULL,
   `role_type` VARCHAR(10) NULL,
