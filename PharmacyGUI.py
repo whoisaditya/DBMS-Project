@@ -1199,7 +1199,7 @@ def login():
     login.title("Login Page")
     login.geometry("700x500")
 
-    login.iconbitmap('pharmacy.ico')
+    login.iconbitmap('Static Files/pharmacy.ico')
 
     username_label = Label(login, text="Enter your name below: ")
     password_label = Label(login, text="Enter your password below: ")
@@ -1216,7 +1216,7 @@ def login():
     canvas = Canvas(login, width=500, height=400)
     canvas.pack()
     # Check Later
-    img = ImageTk.PhotoImage(Image.open("capture1.jpeg"))
+    img = ImageTk.PhotoImage(Image.open("Static Files/capture1.jpeg"))
     canvas.create_image(20, 20, anchor=NW, image=img)
 
     login.mainloop()
@@ -1227,11 +1227,11 @@ def mainpage():
     main = Tk()
     main.title("Main Page")
     main.geometry("300x300")
-    main.iconbitmap('pharmacy.ico')
+    main.iconbitmap('Static Files/pharmacy.ico')
     canvas = Canvas(main, width=100, height=100)
     canvas.pack()
 
-    image = Image.open("capture.jpg")    # The (450, 350) is (height, width)
+    image = Image.open("Static Files/capture.jpg")    # The (450, 350) is (height, width)
     image = image.resize((100, 100), Image.ANTIALIAS)
     my_img = ImageTk.PhotoImage(image)
     my_img = Label(image=my_img)
@@ -1248,6 +1248,5 @@ def mainpage():
     main_login_btn = Button(main, text="Login", command=login)
     main_login_btn.pack(padx=10, pady=10)
     main.mainloop()
-
 
 mainpage()
