@@ -1216,7 +1216,7 @@ def login():
     canvas = Canvas(login, width=500, height=400)
     canvas.pack()
     # Check Later
-    img = ImageTk.PhotoImage(Image.open("Static Files/capture1.jpeg"))
+    img = ImageTk.PhotoImage(Image.open("Static Files/capture1.jpg"))
     canvas.create_image(20, 20, anchor=NW, image=img)
 
     login.mainloop()
